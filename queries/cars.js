@@ -84,9 +84,58 @@ const deleteCar = async (id) => {
   }
 };
 
+const carMake = async (term) => {
+  const formTerm = `%${term}%`;
+  try {
+    const collection = await db.any(
+      "SELECT * FROM cars WHERE car_Make ILIKE $1",
+      [formTerm]
+    );
+    return collection;
+  } catch (error) {
+    return error;
+  }
+};
+
+const updateCar = async (id, car) => {
+  try {
+    const updatedCar = await db.any(
+      "UPDATE cars SET car_Make=$1,car_Model=$2,year=$3,body_Type=$4,color_Options=$5,fuel_Type=$6,engine_Size=$7, horsepower=$8,torque=$9,transmission_Type=$10,acceleration=$11,top_Speed=$12,mileage=$13,safety_Features=$14,entertainment_Features=$15,interior_Features=$16,exterior_Features=$17,price=$18,customer_Ratings=$19,sales_Figures=$20 WHERE id=$21 RETURNING *",
+      [
+        car.car_Make,
+        car.car_Model,
+        car.year,
+        car.body_Type,
+        car.color_Options,
+        car.fuel_Type,
+        car.engine_Size,
+        car.horsepower,
+        car.torque,
+        car.transmission_Type,
+        car.acceleration,
+        car.top_Speed,
+        car.mileage,
+        car.safety_Features,
+        car.entertainment_Features,
+        car.interior_Features,
+        car.exterior_Features,
+        car.price,
+        car.customer_Ratings,
+        car.sales_Figures,
+        id,
+      ]
+    );
+    return updatedCar;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllCars,
   getCarById,
   createCar,
   deleteCar,
+  carMake,
+  updateCar,
 };

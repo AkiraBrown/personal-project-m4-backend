@@ -1,4 +1,6 @@
 \c cars_dev;
+
+
 INSERT INTO cars(car_Make,car_Model,year,body_Type,color_Options,fuel_Type,engine_Size,horsepower,torque,transmission_Type,acceleration,top_Speed,mileage,safety_Features,entertainment_Features,interior_Features,exterior_Features,price,customer_Ratings,sales_Figures) VALUES
  ('Toyota','Camry',2022,'Sedan','White, Silver, Black','Gasoline',2.5,203,'245','Automatic','7.9 seconds',135,31,'ABS, Airbags, Lane-Keeping Assist, Blind Spot Monitor','8-inch Touchscreen Infotainment System','Leather Seats, Power Driver''s Seat, Dual-Zone Climate Control','LED Headlights, Alloy Wheels, Sunroof',28500,'4.5/5',1500)
 ,('Ford','F-150',2023,'Truck','Blue, Red, Gray','Gasoline',3.5,375,'475','Automatic','6.1 seconds',145,23,'ABS, Airbags, Trailer Sway Control, Rear View Camera','12-inch SYNC 4 Infotainment System','Cloth Seats, Power Windows, Keyless Entry','LED Taillights, Tow Hitch, Bed Liner',45900,'4.8/5',2200)
