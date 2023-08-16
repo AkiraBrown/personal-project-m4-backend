@@ -12,18 +12,19 @@ CREATE TABLE cars(
     fuel_Type TEXT,
     engine_Size DECIMAL,
     horsepower INT,
-    torque TEXT,
+    torque INT,
     transmission_Type TEXT,
     acceleration TEXT,
-    top_Speed TEXT,
-    mileage  TEXT,
+    top_Speed INT,
+    mileage  INT,
     safety_Features TEXT,
     entertainment_Features TEXT,
     interior_Features TEXT,
     exterior_Features TEXT,
     price INT,
     customer_Ratings TEXT,
-    sales_Figures INT
+    sales_Figures INT,
+    image_url TEXT
 );
 
 /*

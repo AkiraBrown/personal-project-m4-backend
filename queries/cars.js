@@ -39,10 +39,11 @@ const createCar = async ({
   price,
   customer_Ratings,
   sales_Figures,
+  image_url,
 }) => {
   try {
     const newCar = await db.any(
-      "INSERT INTO cars (car_Make,car_Model,year,body_Type,color_Options,fuel_Type,engine_Size,horsepower,torque,transmission_Type,acceleration,top_Speed,mileage,safety_Features,entertainment_Features,interior_Features,exterior_Features,price,customer_Ratings,sales_Figures) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)RETURNING *",
+      "INSERT INTO cars (car_Make,car_Model,year,body_Type,color_Options,fuel_Type,engine_Size,horsepower,torque,transmission_Type,acceleration,top_Speed,mileage,safety_Features,entertainment_Features,interior_Features,exterior_Features,price,customer_Ratings,sales_Figures,image_url) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21)RETURNING *",
       [
         car_Make,
         car_Model,
@@ -64,6 +65,7 @@ const createCar = async ({
         price,
         customer_Ratings,
         sales_Figures,
+        image_url,
       ]
     );
     return newCar;
@@ -100,7 +102,7 @@ const carMake = async (term) => {
 const updateCar = async (id, car) => {
   try {
     const updatedCar = await db.any(
-      "UPDATE cars SET car_Make=$1,car_Model=$2,year=$3,body_Type=$4,color_Options=$5,fuel_Type=$6,engine_Size=$7, horsepower=$8,torque=$9,transmission_Type=$10,acceleration=$11,top_Speed=$12,mileage=$13,safety_Features=$14,entertainment_Features=$15,interior_Features=$16,exterior_Features=$17,price=$18,customer_Ratings=$19,sales_Figures=$20 WHERE id=$21 RETURNING *",
+      "UPDATE cars SET car_Make=$1,car_Model=$2,year=$3,body_Type=$4,color_Options=$5,fuel_Type=$6,engine_Size=$7, horsepower=$8,torque=$9,transmission_Type=$10,acceleration=$11,top_Speed=$12,mileage=$13,safety_Features=$14,entertainment_Features=$15,interior_Features=$16,exterior_Features=$17,price=$18,customer_Ratings=$19,sales_Figures=$20,image_url=$21 WHERE id=$22 RETURNING *",
       [
         car.car_Make,
         car.car_Model,
@@ -122,6 +124,7 @@ const updateCar = async (id, car) => {
         car.price,
         car.customer_Ratings,
         car.sales_Figures,
+        car.image_url,
         id,
       ]
     );
