@@ -9,6 +9,8 @@ const {
   deleteCar,
   carMake,
   updateCar,
+  bodyType,
+  advancedFilter,
 } = require("../queries/cars");
 
 const {
@@ -82,6 +84,35 @@ router.delete("/:id", async (req, res) => {
       res.status(404).json(deletedCar[0]);
     } else {
       res.status(200).json(deletedCar[0]);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+
+router.get("/get-body-type/:search", async (req, res) => {
+  try {
+    const results = await bodyType(req.params.search);
+    if (!results[0]) {
+      res.status(404).json({ error: "Results not found" });
+    } else {
+      res.status(200).json(results);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+
+router.get("/super-search", async (req, res) => {
+  const localMake = req.query.carMake;
+  const localColor = req.query.color;
+  const localBody = req.query.body;
+  try {
+    const search = await advancedFilter(localMake, localColor, localBody);
+    if (!search[0]) {
+      res.status(404).json({ error: "Results not found" });
+    } else {
+      res.status(200).json(search);
     }
   } catch (error) {
     res.status(500).json({ error: error });

@@ -134,6 +134,41 @@ const updateCar = async (id, car) => {
   }
 };
 
+const bodyType = async (term) => {
+  const formatTerm = `%${term}%`;
+  try {
+    const carBody = await db.any(
+      "SELECT * FROM cars WHERE body_Type ILIKE $1",
+      [formatTerm]
+    );
+    return carBody;
+  } catch (error) {
+    return error;
+  }
+};
+
+/*For this we need to create a query that takes in multiple columns conditions and 
+isolates a small amount of items.
+The query we have is
+
+SELECT * FROM cars WHERE car_Make ILIKE '%carmakeHERE%' AND color_Options ILIKE '%colorOptionsHERE%' AND body_Type ILIKE '%bodyTypeHERE%'
+*/
+
+const advancedFilter = async (make, color, body) => {
+  const formMake = `%${make}%`;
+  const formColor = `%${color}%`;
+  const formBody = `%${body}%`;
+  try {
+    const superSearch = await db.any(
+      "SELECT * FROM cars WHERE car_Make ILIKE $1 AND color_Options ILIKE $2 AND body_Type ILIKE $3",
+      [formMake, formColor, formBody]
+    );
+    return superSearch;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllCars,
   getCarById,
@@ -141,4 +176,6 @@ module.exports = {
   deleteCar,
   carMake,
   updateCar,
+  bodyType,
+  advancedFilter,
 };
