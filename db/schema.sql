@@ -14,7 +14,7 @@ CREATE TABLE cars(
     horsepower INT,
     torque INT,
     transmission_Type TEXT,
-    acceleration TEXT,
+    acceleration DECIMAL,
     top_Speed INT,
     mileage  INT,
     safety_Features TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE cars(
     interior_Features TEXT,
     exterior_Features TEXT,
     price INT,
-    customer_Ratings TEXT,
+    customer_Ratings DECIMAL,
     sales_Figures INT,
     image_url TEXT
 );
@@ -38,7 +38,7 @@ engine_Size DECIMAL  (L Litres)
 horsepower INT
 torque TEXT     (Nm Newton Metres)
 transmission_Type TEXT
-acceleration TEXT (0-60 mph)
+acceleration TEXT (0-60 mph seconds)
 top_Speed TEXT (mph)
 mileage  TEXT (mpg)
 safety_Features TEXT
@@ -46,7 +46,7 @@ entertainment_Features TEXT
 interior_Features TEXT
 exterior_Features TEXT
 price TEXT
-customer_Ratings TEXT
+customer_Ratings TEXT (out of 5)
 sales_Figures TEXT  (units sold)
 */
 

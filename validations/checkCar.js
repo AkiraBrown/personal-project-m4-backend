@@ -7,7 +7,7 @@ const checkCarMake = (req, res, next) => {
 };
 
 const checkModel = (req, res, next) => {
-  if (!req.body.car_Model) {
+  if (!req.body.car_model) {
     res.status(400).json({ error: "Car Model is required" });
   } else {
     next();
