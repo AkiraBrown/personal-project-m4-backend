@@ -25,8 +25,8 @@ const checkYear = (req, res, next) => {
 };
 const validateURL = (req, res, next) => {
   if (
-    !req.body.url.substring(0, 7) === "http://" ||
-    !req.body.url.substring(0, 8) === "https://"
+    !req.body.image_url.substring(0, 7) === "http://" ||
+    !req.body.image_url.substring(0, 8) === "https://"
   ) {
     res
       .status(400)
