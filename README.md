@@ -21,6 +21,10 @@ Live
 - Backend (https://m4personalproject-ab.onrender.com)
 - Frontend (https://m4-personalportfolio-ab.netlify.app/)
 
+Trello
+
+- Board (https://trello.com/invite/b/btM4Pc19/ATTI056500ccc42c3b9359584c6ba7d3ef1f19BA50B7/personalportfolioproject-ab)
+
 ## Technologies
 
 Frontend
